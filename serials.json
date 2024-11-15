@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Breaking Bad",
+    "genre": ["Drama", "Crime", "Thriller"],
+    "actors": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
+    "director": "Vince Gilligan",
+    "country": "USA",
+    "year": 2008,
+    "rating": 9.5,
+    "duration": 47,
+    "seasons": 5
+  },
+  {
+    "title": "Better Call Saul",
+    "genre": ["Drama", "Crime"],
+    "actors": ["Bob Odenkirk", "Rhea Seehorn", "Jonathan Banks"],
+    "director": "Vince Gilligan",
+    "country": "USA",
+    "year": 2015,
+    "rating": 8.9,
+    "duration": 46,
+    "seasons": 6
+  },
+  {
+    "title": "The Office",
+    "genre": ["Comedy"],
+    "actors": ["Steve Carell", "Rainn Wilson", "John Krasinski"],
+    "director": "Greg Daniels",
+    "country": "USA",
+    "year": 2005,
+    "rating": 9.0,
+    "duration": 22,
+    "seasons": 9
+  },
+  {
+    "title": "Friends",
+    "genre": ["Comedy", "Romance"],
+    "actors": ["Jennifer Aniston", "Matthew Perry", "Courteney Cox"],
+    "director": "Kevin Bright",
+    "country": "USA",
+    "year": 1994,
+    "rating": 8.9,
+    "duration": 22,
+    "seasons": 10
+  },
+  {
+    "title": "Chernobyl",
+    "genre": ["Drama", "History"],
+    "actors": ["Jared Harris", "Stellan Skarsgard", "Emily Watson"],
+    "director": "Johan Renck",
+    "country": "United Kingdom",
+    "year": 2019,
+    "rating": 9.3,
+    "duration": 65,
+    "seasons": 1
+  },
+  {
+    "title": "Sherlock",
+    "genre": ["Drama", "Crime", "Mystery"],
+    "actors": ["Benedict Cumberbatch", "Martin Freeman", "Una Stubbs"],
+    "director": "Paul McGuigan",
+    "country": "United Kingdom",
+    "year": 2010,
+    "rating": 9.1,
+    "duration": 88,
+    "seasons": 4
+  },
+  {
+    "title": "Dark",
+    "genre": ["Drama", "Mystery", "Sci-Fi"],
+    "actors": ["Louis Hofmann", "Oliver Masucci", "Lisa Vicari"],
+    "director": "Baran bo Odar",
+    "country": "Germany",
+    "year": 2017,
+    "rating": 8.7,
+    "duration": 60,
+    "seasons": 3
+  }
+]

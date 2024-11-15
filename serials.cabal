@@ -1,0 +1,38 @@
+cabal-version:      2.4
+name:               serials
+version:            0.1.0.0
+synopsis:           Консольный каталог сериалов с поиском, фильтрацией и сортировкой
+author:             Владислав Фёдоров
+build-type:         Simple
+extra-source-files: serials.json
+                    README.md
+
+common warnings
+    ghc-options:      -Wall
+    default-language: Haskell2010
+
+library
+    import:           warnings
+    hs-source-dirs:   src
+    exposed-modules:  Serials.Types
+                      Serials.Query
+    build-depends:    base        >=4.14 && <5
+                    , aeson       >=2.0
+                    , bytestring
+                    , containers
+
+executable serials
+    import:           warnings
+    hs-source-dirs:   app
+    main-is:          Main.hs
+    build-depends:    base
+                    , serials
+
+test-suite spec
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Spec.hs
+    build-depends:    base
+                    , serials
+                    , HUnit >=1.6
