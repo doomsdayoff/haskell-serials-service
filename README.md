@@ -1,5 +1,7 @@
 # serials-api
 
+[![CI](https://github.com/Doomsday058/haskell-serials-service/actions/workflows/ci.yml/badge.svg)](https://github.com/Doomsday058/haskell-serials-service/actions/workflows/ci.yml)
+
 REST API каталога сериалов на Haskell и Servant.
 
 Проект вырос из курсовой работы по дисциплине «Функциональное и логическое
@@ -90,6 +92,9 @@ Content-Type: application/json;charset=utf-8
 ```
 cabal test
 ```
+
+На каждый push в `main` GitHub Actions собирает проект и прогоняет тесты
+на GHC 9.6.7; статус — в бейдже наверху.
 
 Тесты на HUnit покрывают чистый слой: фильтрацию по каждому критерию и их
 сочетаниям, стабильность сортировки при равных рейтингах, разбор параметров

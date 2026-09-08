@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: GHC ${{ matrix.ghc }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ghc: ['9.6.7']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: setup
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: '3.10.3.0'
+
+      # plan.json перечисляет точные версии зависимостей и служит ключом кэша:
+      # пока .cabal не менялся, сборка переиспользует прогретый cabal store.
+      - name: Построить план сборки
+        run: cabal build all --dry-run
+
+      - name: Кэш зависимостей
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.setup.outputs.cabal-store }}
+          key: ${{ runner.os }}-ghc${{ matrix.ghc }}-${{ hashFiles('dist-newstyle/cache/plan.json') }}
+          restore-keys: ${{ runner.os }}-ghc${{ matrix.ghc }}-
+
+      - name: Собрать зависимости
+        run: cabal build all --only-dependencies
+
+      - name: Собрать проект
+        run: cabal build all
+
+      - name: Прогнать тесты
+        run: cabal test all --test-show-details=direct
