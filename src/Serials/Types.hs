@@ -1,29 +1,32 @@
+{-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 
 module Serials.Types
   ( Serial (..)
-  , loadSerials
+  , Health (..)
+  , ReloadResult (..)
   ) where
 
-import Data.Aeson (FromJSON, eitherDecode)
-import qualified Data.ByteString.Lazy as BL
+import Data.Aeson (FromJSON, ToJSON)
+import Data.Text (Text)
 import GHC.Generics (Generic)
 
+-- Поля строгие: каталог целиком лежит в памяти, и держать в нём
+-- нераскрытые санки от разбора JSON смысла нет.
 data Serial = Serial
-  { title    :: String
-  , genre    :: [String]
-  , actors   :: [String]
-  , director :: String
-  , country  :: String
-  , year     :: Int
-  , rating   :: Float
-  , duration :: Int
-  , seasons  :: Int
-  } deriving (Show, Eq, Generic)
+  { title    :: !Text
+  , genre    :: ![Text]
+  , actors   :: ![Text]
+  , director :: !Text
+  , country  :: !Text
+  , year     :: !Int
+  , rating   :: !Double
+  , duration :: !Int
+  , seasons  :: !Int
+  } deriving (Show, Eq, Generic, FromJSON, ToJSON)
 
-instance FromJSON Serial
+newtype Health = Health { status :: Text }
+  deriving (Show, Eq, Generic, FromJSON, ToJSON)
 
--- Имена полей Serial совпадают с ключами JSON, поэтому разбор целиком
--- выводится из Generic и отдельный парсер не нужен.
-loadSerials :: FilePath -> IO (Either String [Serial])
-loadSerials path = eitherDecode <$> BL.readFile path
+newtype ReloadResult = ReloadResult { loaded :: Int }
+  deriving (Show, Eq, Generic, FromJSON, ToJSON)
