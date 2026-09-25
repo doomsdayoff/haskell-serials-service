@@ -1,6 +1,6 @@
 # serials-api
 
-[![CI](https://github.com/Doomsday058/haskell-serials-service/actions/workflows/ci.yml/badge.svg)](https://github.com/Doomsday058/haskell-serials-service/actions/workflows/ci.yml)
+[![CI](https://github.com/doomsdayoff/haskell-serials-service/actions/workflows/ci.yml/badge.svg)](https://github.com/doomsdayoff/haskell-serials-service/actions/workflows/ci.yml)
 
 REST API каталога сериалов на Haskell и Servant.
 
